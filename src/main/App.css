@@ -1,0 +1,43 @@
+:root {
+    --bg-color: rgb(255, 255, 255);
+    --bg-color2: rgb(240, 239, 239);
+    --shadow: 0 2px 23px 0 rgba(0, 0, 0, 0.2);
+    --subtitle-color: rgb(100, 100, 100);
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+aside.logo {
+    grid-area: logo;
+}
+
+header.header {
+    grid-area: header;
+}
+
+main.main-content {
+    grid-area: main;
+}
+
+aside .menu {
+    grid-area: nav;
+}
+
+footer.footer {
+    grid-area: footer;
+}
+
+body .app {
+    background-color: var(--bg-color2);
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 100px 1fr 80px;
+    grid-template-areas: 
+        "logo header"
+        "nav main"
+        "footer footer";
+}
