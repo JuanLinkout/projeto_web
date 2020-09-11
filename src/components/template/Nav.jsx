@@ -18,15 +18,15 @@ export default (props) => (
         </a>
       </li>
       <li>
-        <a href='#/faculdade'>
-          <FontAwesomeIcon icon='school' />
-          <span> Faculdade</span>
-        </a>
-      </li>
-      <li>
         <a href='#/disciplinas'>
           <FontAwesomeIcon icon='address-card' />
           <span> Disciplinas</span>
+        </a>
+      </li>
+      <li>
+        <a href='#/faculdade'>
+          <FontAwesomeIcon icon='school' />
+          <span> Faculdade</span>
         </a>
       </li>
     </ul>

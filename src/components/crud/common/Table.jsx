@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserTable.css'
+import '../styles/Table.css'
 
 export default (props) => (
   <table className='table'>
@@ -11,13 +11,13 @@ export default (props) => (
     <tbody>
       {props.list.map((obj, index) => (
         <tr key={index}>
-          {Object.keys(obj).map(key => {
+          {Object.keys(obj).map((key, index) => {
             if (key === 'id') {
               return null;
             }
 
             return (
-              <td key={key}>
+              <td key={index}>
                 {obj[key]}
               </td>
             );

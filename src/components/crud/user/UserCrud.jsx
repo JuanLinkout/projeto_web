@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Main from '../../components/template/Main';
-import UserTable from './UserTable'
+import Main from '../../template/Main';
+import Table from '../common/Table'
 import UserForm from './UserForm'
 
 const headerProps = {
@@ -14,7 +14,7 @@ export default class UserCrud extends Component {
     super(props);
     this.state = {
       professores: [],
-      template: ['Nome', 'Registro Funcional', 'Titulação', 'Email', 'Telefone', 'Area Graduação', 'Area Atuação', 'Sexo', 'Data Nascimento', 'Alterar', 'Excluir'],
+      template: ['Nome', 'Registro Funcional', 'Titulação', 'Email', 'Telefone', 'Area Graduação', 'Area Atuação', 'Sexo', 'Data Nascimento', 'Excluir', 'Alterar'],
       changeUser: null,
       currentId: 0,
     };
@@ -69,7 +69,7 @@ export default class UserCrud extends Component {
         <hr />
         <UserForm change={this.state.changeUser} addFunction={this.handleAddUser} cancel={this.handleCancel} />
         <hr />
-        <UserTable template={this.state.template} list={this.state.professores} change={this.handleChangeUser} delete={this.handleDeleteUser} />
+        <Table template={this.state.template} list={this.state.professores} change={this.handleChangeUser} delete={this.handleDeleteUser} />
       </Main>
     );
   }
