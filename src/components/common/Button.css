@@ -1,0 +1,43 @@
+.button {
+  border: none;
+  color: black;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.excluir {
+  background-color: red;
+}
+
+.excluir:active {
+  background-color: rgb(131, 0, 0);
+}
+
+.alterar {
+  background-color: yellow;
+}
+
+.alterar:active {
+  background-color: rgb(124, 124, 0);
+}
+
+.incluir {
+  background-color: cornflowerblue;
+}
+
+.incluir:active {
+  background-color: rgb(60, 90, 144);
+}
+
+.cancelar {
+  background-color: slategrey;
+}
+
+.cancelar:active {
+  background-color: rgb(70, 80, 90);
+}

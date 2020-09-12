@@ -1,11 +1,11 @@
 .logo {
-  background-color: rgb(67, 67, 67);
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .logo img {
-  height: 103px;
   width: 200px;
+  height: 100px;
 }

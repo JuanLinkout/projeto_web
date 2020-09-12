@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Main from '../../template/Main';
 import Table from '../common/Table'
-import UserForm from './UserForm'
+import UserForm from './ProfessoresForm'
 
 const headerProps = {
   icon: 'users',
-  title: 'Usuários',
-  subtitle: 'Cadastro de usuarios: Inclui, Listar, Alterar e Excluir.',
+  title: 'Professores',
+  subtitle: 'Página com informações dos professores.',
 };
 
 export default class UserCrud extends Component {
@@ -14,7 +14,7 @@ export default class UserCrud extends Component {
     super(props);
     this.state = {
       professores: [],
-      template: ['Nome', 'Registro Funcional', 'Titulação', 'Email', 'Telefone', 'Area Graduação', 'Area Atuação', 'Sexo', 'Data Nascimento', 'Excluir', 'Alterar'],
+      template: ['Nome', 'Registro Funcional', 'Titulação', 'Email', 'Telefone', 'Area Graduação', 'Area Atuação', 'Sexo', 'Data Nascimento', 'Alterar', 'Excluir'],
       changeUser: null,
       currentId: 0,
     };
@@ -65,7 +65,7 @@ export default class UserCrud extends Component {
     console.log(this.state);
     return (
       <Main {...headerProps}>
-        <h1>Professores</h1>
+        <h1>Incluir Professores</h1>
         <hr />
         <UserForm change={this.state.changeUser} addFunction={this.handleAddUser} cancel={this.handleCancel} />
         <hr />

@@ -51,7 +51,7 @@
 
 .form-item .icon {
   position: absolute;
-  bottom: 15px;
+  bottom: 18px;
   left: 38px;
   transition: 0.3s;
 }
@@ -62,9 +62,21 @@
   padding: 10px;
 }
 
+.container-buttons .button {
+  margin: 0 5px;
+}
+
+.table td .button .icon {
+  color: black;
+  padding: 0px 20px;
+  text-align: center;
+  font-size: 20px;
+  margin: 0;
+}
+
 @media screen and (max-width: 1600px) {
   .form {
       height: 250px;
-      align-content: space-between;
+      align-content: center;
   }
 }

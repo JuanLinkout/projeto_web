@@ -14,7 +14,7 @@ export default class UserCrud extends Component {
     super(props);
     this.state = {
       disciplinas: [],
-      template: ['Sigla', 'Nome', 'Ementa', 'Bibliografia', 'Numero Creditos', 'Carga Horaria', 'Excluir', 'Alterar'],
+      template: ['Sigla', 'Nome', 'Ementa', 'Bibliografia', 'Numero Creditos', 'Carga Horaria', 'Alterar', 'Excluir'],
       changeDisciplina: null,
       currentId: 0,
     };
@@ -65,7 +65,7 @@ export default class UserCrud extends Component {
     console.log(this.state);
     return (
       <Main {...headerProps}>
-        <h1>disciplinas</h1>
+        <h1>Incluir Disciplinas</h1>
         <hr />
         <DisciplinaForm change={this.state.changeDisciplina} addFunction={this.handleAddUser} cancel={this.handleCancel} />
         <hr />

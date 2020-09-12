@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/Form.css';
+import Button from '../../common/Button';
 
 const initialState = {
   nome: '',
@@ -106,8 +107,8 @@ export default class UserForm extends React.Component {
         </form>
         <hr />
         <div className="container-buttons">
-          <button className="button incluir" onClick={this.handleAdd}>Incluir</button>
-          <button className="button cancelar" onClick={this.handleCancel}>Cancelar</button>
+          <Button value='Incluir' class='incluir' click={this.handleAdd} />
+          <Button value='Cancelar' class='cancelar' click={this.handleCancel} />
         </div>
       </div>
     );

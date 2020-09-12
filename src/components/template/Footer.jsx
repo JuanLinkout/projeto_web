@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default (props) => (
   <footer className='footer'>
-    <p>
+    <p className='creditos'>
       Projeto Universidade realizado em <FontAwesomeIcon icon={['fab', 'react']} /> por Juan.
     </p>
   </footer>

@@ -1,4 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import Button from '../../common/Button';
 import '../styles/Table.css'
 
 export default (props) => (
@@ -23,10 +25,14 @@ export default (props) => (
             );
           })}
           <td>
-            <button onClick={() => props.delete(index)}>Excluir</button>
+            <Button class='alterar' click={() => props.change(obj)} >
+              <FontAwesomeIcon className='icon' icon='cog' />
+            </Button>
           </td>
           <td>
-            <button onClick={() => props.change(obj)}>Alterar</button>
+            <Button class='excluir' click={() => props.delete(index)} >
+              <FontAwesomeIcon className='icon' icon='window-close' />
+            </Button>
           </td>
         </tr>
       ))}

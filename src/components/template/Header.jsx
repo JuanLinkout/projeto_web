@@ -9,6 +9,6 @@ export default (props) => (
       <FontAwesomeIcon icon={props.icon} />
       <span> {props.title}</span>
     </h1>
-    <p>{props.subtitle}</p>
+    <p className='subtitle'>{props.subtitle}</p>
   </header>
 );
