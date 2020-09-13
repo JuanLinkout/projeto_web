@@ -26,3 +26,8 @@ nav.menu {
   background-color: var(--bg-color);
   color: black;
 }
+
+.menu li a:active {
+  background-color: var(--bg-color);
+  color: black;
+}

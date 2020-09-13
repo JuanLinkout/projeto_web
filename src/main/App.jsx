@@ -12,9 +12,9 @@ import '../components/assets/font-awesome';
 export default (props) => (
   <HashRouter>
     <div className='app'>
+      <Nav />
       <Logo />
       <Routes />
-      <Nav />
       <Footer />
     </div>
   </HashRouter>

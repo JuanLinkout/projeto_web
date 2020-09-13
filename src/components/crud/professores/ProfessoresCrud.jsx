@@ -28,7 +28,7 @@ export default class UserCrud extends Component {
       this.setState({ professores: res.data });
     });
   };
-  
+
   handleAddUser = (obj) => {
     const method = this.state.changeUser ? "put" : "post";
     const url = method === "put" ? `http://localhost:3001/professores/${obj.id}` : "http://localhost:3001/professores";
@@ -55,7 +55,6 @@ export default class UserCrud extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <Main {...headerProps}>
         <h1>Incluir Professores</h1>

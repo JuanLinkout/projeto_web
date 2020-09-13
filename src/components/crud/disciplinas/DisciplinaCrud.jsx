@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import Main from '../../template/Main';
 import Table from '../common/Table'
 import DisciplinaForm from './DisciplinaForm'
+import axios from 'axios';
 
 const headerProps = {
   icon: 'address-card',
   title: 'Disciplinas',
   subtitle: 'Cadastro de disciplinas: Inclui, Listar, Alterar e Excluir.',
 };
+
+const url = "http://localhost:3001/disciplinas";
 
 export default class UserCrud extends Component {
   constructor(props) {
@@ -20,37 +23,23 @@ export default class UserCrud extends Component {
     };
   }
 
-  incrementId = () => {
-    const currentId = this.state.currentId;
-    const id = currentId + 1;
-    this.setState({ currentId: id });
-    return id;
+  getDisciplinas = () => {
+    axios.get(url).then(res => {
+      this.setState({ disciplinas: res.data });
+    });
   };
 
   handleAddUser = (obj) => {
-    const currentDisciplinas = [...this.state.disciplinas];
-
-    if (this.state.changeDisciplina !== null) {
-      const updatedDisciplinas = currentDisciplinas.map((item) => {
-        if (obj.id === item.id) {
-          return obj;
-        }
-        return item;
-      });
-
-      this.setState({ disciplinas: [...updatedDisciplinas], changeDisciplina: null });
-      return;
-    }
-
-    const id = this.incrementId();
-    this.setState({ disciplinas: [...currentDisciplinas, { id, ...obj }], changeDisciplina: null });
+    const method = this.state.changeDisciplina ? "put" : "post";
+    const url = method === "put" ? `http://localhost:3001/disciplinas/${obj.id}` : "http://localhost:3001/disciplinas";
+    axios[method](url, obj);
+    this.getDisciplinas();
   };
 
-  handleDeleteUser = (index) => {
-    const currentDisciplinas = [...this.state.disciplinas];
-    currentDisciplinas.splice(index, 1);
-    const updatedDisciplinas = [...currentDisciplinas];
-    this.setState({ disciplinas: [...updatedDisciplinas] });
+  handleDeleteUser = (obj) => {
+    const url = `http://localhost:3001/disciplinas/${obj.id}`;
+    axios.delete(url);
+    this.getDisciplinas();
   };
 
   handlechangeDisciplina = (obj) => {
@@ -60,6 +49,11 @@ export default class UserCrud extends Component {
   handleCancel = () => {
     this.setState({ changeDisciplina: null });
   };
+
+  componentDidMount() {
+    this.getDisciplinas();
+  }
+
 
   render() {
     console.log(this.state);
