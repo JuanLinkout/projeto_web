@@ -7,6 +7,6 @@ export default props => {
 
   return (
     <button className={classes} onClick={(e) => props.click && props.click(e)}>{props.value ? props.value : props.children}</button>
-  )
+  );
 }
 

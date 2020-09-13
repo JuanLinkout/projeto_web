@@ -36,7 +36,7 @@ export default class UserCrud extends Component {
           return obj;
         }
         return item;
-      })
+      });
 
       this.setState({ disciplinas: [...updatedDisciplinas], changeDisciplina: null });
       return;
@@ -58,7 +58,7 @@ export default class UserCrud extends Component {
   };
 
   handleCancel = () => {
-    this.setState({ changeDisciplina: null })
+    this.setState({ changeDisciplina: null });
   };
 
   render() {

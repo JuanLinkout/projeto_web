@@ -12,4 +12,4 @@ export default props => (
         <p>Realizado pelos alunos: Juan Lucas Rossi e Lucas Gonçalves Selin.</p>
         <p>Aulas ministradas pelo professor Sergio, matéria de INWS1.</p>
     </Main>
-)
+);
