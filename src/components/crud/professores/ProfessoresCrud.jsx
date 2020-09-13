@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import Main from '../../template/Main';
-import Table from '../common/Table'
-import UserForm from './ProfessoresForm'
+import Table from '../common/Table';
+import UserForm from './ProfessoresForm';
+import axios from 'axios';
 
 const headerProps = {
   icon: 'users',
   title: 'Professores',
   subtitle: 'Página com informações dos professores.',
 };
+
+const url = "http://localhost:3001/professores";
 
 export default class UserCrud extends Component {
   constructor(props) {
@@ -20,37 +23,23 @@ export default class UserCrud extends Component {
     };
   }
 
-  incrementId = () => {
-    const { currentId } = this.state;
-    const id = currentId + 1;
-    this.setState({ currentId: id });
-    return id;
+  getProfessores = () => {
+    axios.get(url).then(res => {
+      this.setState({ professores: res.data });
+    });
   };
-
+  
   handleAddUser = (obj) => {
-    const currentProfessores = [...this.state.professores];
-
-    if (this.state.changeUser !== null) {
-      const updatedProfessores = currentProfessores.map((item) => {
-        if (obj['id'] === item['id']) {
-          return obj;
-        }
-        return item;
-      });
-
-      this.setState({ professores: [...updatedProfessores], changeUser: null });
-      return;
-    }
-
-    const id = this.incrementId();
-    this.setState({ professores: [...currentProfessores, { id, ...obj }], changeUser: null });
+    const method = this.state.changeUser ? "put" : "post";
+    const url = method === "put" ? `http://localhost:3001/professores/${obj.id}` : "http://localhost:3001/professores";
+    axios[method](url, obj);
+    this.getProfessores();
   };
 
-  handleDeleteUser = (index) => {
-    const currentProfessores = [...this.state.professores];
-    currentProfessores.splice(index, 1);
-    const updatedProfessores = [...currentProfessores];
-    this.setState({ professores: [...updatedProfessores] });
+  handleDeleteUser = (obj) => {
+    const url = `http://localhost:3001/professores/${obj.id}`;
+    axios.delete(url);
+    this.getProfessores();
   };
 
   handleChangeUser = (obj) => {
@@ -60,6 +49,10 @@ export default class UserCrud extends Component {
   handleCancel = () => {
     this.setState({ changeUser: null });
   };
+
+  componentDidMount() {
+    this.getProfessores();
+  }
 
   render() {
     console.log(this.state);

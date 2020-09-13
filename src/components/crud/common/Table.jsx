@@ -30,7 +30,7 @@ export default (props) => (
             </Button>
           </td>
           <td>
-            <Button class='excluir' click={() => props.delete(index)} >
+            <Button class='excluir' click={() => props.delete(obj)} >
               <FontAwesomeIcon className='icon' icon='window-close' />
             </Button>
           </td>
