@@ -31,6 +31,12 @@ export default class UserCrud extends Component {
 
   handleAddUser = (obj) => {
     const method = this.state.changeDisciplina ? "put" : "post";
+
+    /* Estava com um bug quando o usuario clica no alterar e depois cancelar o obj continuava com o id, o que causava duplicatas. */
+    if (obj.id && method === "post") {
+      delete obj.id;
+    }
+
     const url = method === "put" ? `http://localhost:3001/disciplinas/${obj.id}` : "http://localhost:3001/disciplinas";
     axios[method](url, obj);
     this.getDisciplinas();
@@ -56,7 +62,6 @@ export default class UserCrud extends Component {
 
 
   render() {
-    console.log(this.state);
     return (
       <Main {...headerProps}>
         <h1>Incluir Disciplinas</h1>
